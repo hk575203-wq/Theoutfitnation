@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Outfit Nation - Review & Connect</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #121212; color: #333; display: flex; justify-content: center; padding: 16px; }
+    .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    
+    /* Header - Modern Streetwear Dark Theme */
+    .header { background: #000000; color: #ffffff; text-align: center; padding: 24px 16px 18px; border-bottom: 2px solid #eab308; }
+    .header h1 { font-size: 22px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; color: #ffffff; }
+    .header p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.5px; }
+    .stars { margin-top: 10px; color: #eab308; font-size: 18px; }
+    .sub-title { font-size: 11px; text-transform: uppercase; color: #e4e4e7; letter-spacing: 1px; margin-top: 4px; font-weight: 600; }
+
+    /* Category Controls */
+    .controls { padding: 16px 16px 8px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 12px; }
+    .pill { border: 1.5px solid #000000; background: #fff; color: #000; padding: 6px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .pill.active { background: #000000; color: #fff; }
+
+    .lang-switch { display: flex; justify-content: center; gap: 10px; margin-bottom: 8px; }
+    .lang-btn { background: #f4f4f5; border: 1px solid #e4e4e7; padding: 5px 14px; border-radius: 14px; font-size: 11px; font-weight: bold; color: #52525b; cursor: pointer; }
+    .lang-btn.active { background: #000; color: #fff; border-color: #000; }
+
+    /* Review Box */
+    .review-wrapper { padding: 0 16px 16px; }
+    .review-container { position: relative; border: 2px solid #e4e4e7; border-radius: 14px; background: #fafafa; padding: 14px 44px 14px 14px; min-height: 95px; display: flex; align-items: center; }
+    .review-text { font-size: 13.5px; line-height: 1.5; color: #18181b; font-weight: 500; }
+    .refresh-btn { position: absolute; right: 10px; top: 12px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 50%; width: 34px; height: 34px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .refresh-btn:active { transform: rotate(90deg); transition: 0.2s; }
+
+    /* Action Button */
+    .action-btn { background: #000000; color: #ffffff; border: none; width: 100%; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+    .action-btn.copied { background: #15803d; }
+    .hint { text-align: center; font-size: 11px; color: #71717a; margin-top: 6px; }
+
+    /* Quick Social Hub */
+    .quick-links { display: flex; justify-content: space-around; padding: 18px 12px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .icon-btn { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #0f172a; font-size: 11px; font-weight: 600; gap: 6px; }
+    .icon-circle { width: 44px; height: 44px; border-radius: 50%; background: #000000; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header">
+      <h1>THE OUTFIT NATION</h1>
+      <p>Premium Wear • Casuals • Trends • Bhopal</p>
+      <div class="stars">★★★★★</div>
+      <div class="sub-title">Rate Your Experience</div>
+    </div>
+
+    <div class="controls">
+      <!-- Category Selection -->
+      <div class="pills">
+        <button class="pill active" onclick="setCategory('all')">ALL</button>
+        <button class="pill" onclick="setCategory('collection')">COLLECTION</button>
+        <button class="pill" onclick="setCategory('quality')">FIT & QUALITY</button>
+        <button class="pill" onclick="setCategory('staff')">SERVICE & PRICE</button>
+      </div>
+
+      <!-- Language Switch -->
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">ENGLISH</button>
+        <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
+      </div>
+    </div>
+
+    <!-- Review Box -->
+    <div class="review-wrapper">
+      <div class="review-container">
+        <div class="review-text" id="review-content">Loading review...</div>
+        <button class="refresh-btn" onclick="shuffleReview()" title="Change review">⟳</button>
+      </div>
+
+      <button class="action-btn" id="copy-btn" onclick="copyAndRedirect()">
+        📋 COPY & PASTE ON GOOGLE
+      </button>
+      <p class="hint">Tap button to copy review & open Google rating box</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU" class="icon-btn" target="_blank">
+        <div class="icon-circle">📍</div>
+        Map
+      </a>
+      <a href="https://wa.me/917477237731?text=Hi%20The%20Outfit%20Nation,%20I%20want%20to%20know%20about%20your%20latest%20collection." class="icon-btn" target="_blank">
+        <div class="icon-circle">💬</div>
+        WhatsApp
+      </a>
+      <a href="tel:+917477237731" class="icon-btn">
+        <div class="icon-circle">📞</div>
+        Call Us
+      </a>
+      <a href="https://www.instagram.com/theoutfitnation_?vrfl=MTFxM2o1dDM2YTUzag==" class="icon-btn" target="_blank">
+        <div class="icon-circle">📷</div>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const reviewsData = {
+      all: {
+        en: [
+          "One of the best clothing stores in Bhopal! Super stylish collection, premium fabric, and very affordable prices. Highly recommended!",
+          "Great shopping experience at The Outfit Nation. Found trendy outfits and the store staff was very helpful. Must visit!",
+          "Loved the vibes and fashion variety here. Perfect place in Bhopal for upgrading your daily wardrobe!"
+        ],
+        hi: [
+          "Bhopal me trendy aur stylish kapdo ke liye best shop hai! Fabric quality bohot acchi hai aur rate bhi genuine hain.",
+          "The Outfit Nation par shopping karke maza aa gaya. Latest collection aur polite staff. 5-star experience!",
+          "Zabardast variety aur premium collection. Bhopal me daily wear aur party wear ke liye sabse best store!"
+        ]
+      },
+      collection: {
+        en: [
+          "Amazing collection of trending streetwear, oversized tees, and stylish shirts. New drops are always on point!",
+          "Best place if you are looking for unique, modern, and trending clothes. Their denim and shirt collection is top tier."
+        ],
+        hi: [
+          "Inka trending collection aur oversized t-shirts ka stock ek number hai! Bhopal me aisi designs kam hi milti hain.",
+          "Latest fashion aur fresh collection har baar milta hai. Shirts aur jackets ki variety bohot shaandar hai!"
+        ]
+      },
+      quality: {
+        en: [
+          "Top-notch fabric quality! The cloth material feels luxurious and the fit is absolutely perfect after wash as well.",
+          "Impressed with the clothing fit and finish. Premium look at very competitive market rates. Fully satisfied!"
+        ],
+        hi: [
+          "Kapde ka fabric aur stitching bohot solid hai. Fitting ekdum perfect aayi. Paisa vasool quality!",
+          "Material quality bohot premium hai aur dhone ke baad bhi color fade nahi hota. Best fitting outfits!"
+        ]
+      },
+      staff: {
+        en: [
+          "Very courteous staff and cooperative service. Prices are extremely reasonable for the quality they provide.",
+          "Smooth shopping experience! Staff helps you choose the right fit without rushing. Definitely coming back."
+        ],
+        hi: [
+          "Staff ka nature bohot cooperative aur helpful hai. Rates bhi quality ke hisaab se kaafi reasonable hain.",
+          "Bohot badhiya service aur accha treatment mila. Customer satisfaction par pura dhyan dete hain!"
+        ]
+      }
+    };
+
+    let activeCategory = 'all';
+    let activeLang = 'en';
+    const reviewRedirectUrl = "https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU";
+
+    function updateReviewText() {
+      const list = reviewsData[activeCategory][activeLang];
+      const randomReview = list[Math.floor(Math.random() * list.length)];
+      document.getElementById('review-content').innerText = `"${randomReview}"`;
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.pill').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      updateReviewText();
+    }
+
+    function setLang(lang) {
+      activeLang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
+      updateReviewText();
+    }
+
+    function shuffleReview() {
+      updateReviewText();
+    }
+
+    function copyAndRedirect() {
+      const textToCopy = document.getElementById('review-content').innerText.replace(/^"|"$/g, '');
+      const btn = document.getElementById('copy-btn');
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        btn.classList.add('copied');
+        btn.innerText = "✓ COPIED! OPENING GOOGLE...";
+        setTimeout(() => {
+          window.location.href = reviewRedirectUrl;
+        }, 600);
+      }).catch(() => {
+        window.location.href = reviewRedirectUrl;
+      });
+    }
+
+    updateReviewText();
+  </script>
+</body>
+</html>
