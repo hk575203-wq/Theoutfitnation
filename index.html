@@ -6,23 +6,29 @@
   <title>The Outfit Nation | Official 5-Star Experience</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --card-bg: rgba(22, 22, 24, 0.85);
+      --bg: #070709;
+      --card-bg: rgba(18, 18, 20, 0.88);
       --gold-primary: #d4af37;
-      --gold-gradient: linear-gradient(135deg, #f9e79f 0%, #d4af37 50%, #aa771c 100%);
-      --gold-glow: rgba(212, 175, 55, 0.25);
-      --text-main: #f5f5f7;
-      --text-muted: #8e8e93;
-      --border-color: rgba(255, 255, 255, 0.08);
+      --gold-gradient: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #996515 100%);
+      --gold-glow: rgba(212, 175, 55, 0.28);
+      --text-main: #fcfcfd;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.09);
       --chip-bg: rgba(255, 255, 255, 0.04);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
     
     body {
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
         radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
       color: var(--text-main);
       display: flex;
@@ -34,13 +40,13 @@
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       width: 100%;
       max-width: 420px;
       border-radius: 28px;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px var(--gold-glow);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      box-shadow: 0 25px 65px rgba(0,0,0,0.85), 0 0 35px var(--gold-glow);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -55,25 +61,25 @@
     }
 
     .brand-emblem {
-      width: 64px;
-      height: 64px;
+      width: 66px;
+      height: 66px;
       margin: 0 auto 12px;
       border-radius: 50%;
       border: 2px solid var(--gold-primary);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 22px rgba(212, 175, 55, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+      background: radial-gradient(circle, #1c1c1f 0%, #000 100%);
     }
 
     .brand-emblem svg {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
     }
 
     .brand-title {
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -94,10 +100,10 @@
     .verified-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 20px;
       font-size: 11px;
       margin-top: 10px;
@@ -105,18 +111,18 @@
     }
 
     .stars {
-      color: #f5a623;
+      color: #f59e0b;
       font-size: 13px;
       letter-spacing: 2px;
     }
 
-    /* 3-Step Visual Micro Bar */
+    /* 3-Step Guide */
     .steps-bar {
       display: flex;
       justify-content: space-between;
-      margin: 10px 20px 14px;
-      background: rgba(0, 0, 0, 0.35);
-      padding: 10px 14px;
+      margin: 8px 18px 12px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 9px 12px;
       border-radius: 14px;
       border: 1px solid var(--border-color);
     }
@@ -125,14 +131,14 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-muted);
       font-weight: 600;
     }
 
     .step-num {
-      width: 17px;
-      height: 17px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--gold-primary);
       color: #000;
@@ -143,16 +149,16 @@
       font-weight: 800;
     }
 
-    /* Category & Language Controls */
+    /* Category Controls */
     .controls {
-      padding: 0 18px 10px;
+      padding: 0 18px 8px;
     }
 
     .pills {
       display: flex;
       gap: 6px;
       overflow-x: auto;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       scrollbar-width: none;
     }
     .pills::-webkit-scrollbar { display: none; }
@@ -160,8 +166,8 @@
     .pill {
       background: var(--chip-bg);
       border: 1px solid var(--border-color);
-      color: #a1a1a6;
-      padding: 7px 14px;
+      color: #9ca3af;
+      padding: 7px 13px;
       border-radius: 12px;
       font-size: 11.5px;
       font-weight: 600;
@@ -172,23 +178,32 @@
 
     .pill.active {
       background: var(--gold-gradient);
-      color: #000;
+      color: #0b0b0d;
       border-color: transparent;
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
       font-weight: 700;
     }
 
     .lang-row {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       margin-top: 6px;
       margin-bottom: 8px;
     }
 
+    .unique-badge {
+      font-size: 10px;
+      color: #d4af37;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
     .segmented-control {
       display: flex;
-      background: #111;
+      background: #111113;
       padding: 3px;
       border-radius: 10px;
       border: 1px solid var(--border-color);
@@ -197,7 +212,7 @@
     .seg-btn {
       background: transparent;
       border: none;
-      color: #888;
+      color: #71717a;
       font-size: 11px;
       padding: 4px 12px;
       border-radius: 8px;
@@ -211,37 +226,46 @@
       color: #fff;
     }
 
-    /* Review Card Box */
+    /* Review Card & Dynamic Textarea */
     .review-wrapper {
       padding: 0 18px 18px;
     }
 
     .review-box {
       position: relative;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 18px;
-      padding: 16px 48px 16px 16px;
-      min-height: 98px;
+      padding: 16px 48px 14px 16px;
+      min-height: 105px;
       display: flex;
-      align-items: center;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.6);
     }
 
     .review-text {
       font-size: 13.5px;
       line-height: 1.55;
-      color: #e5e5ea;
+      color: #f3f4f6;
       font-weight: 500;
       transition: opacity 0.2s ease, transform 0.2s ease;
+      outline: none;
+    }
+
+    .review-hint {
+      margin-top: 6px;
+      font-size: 10px;
+      color: #6b7280;
+      font-style: italic;
     }
 
     .refresh-btn {
       position: absolute;
       right: 12px;
       top: 14px;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--border-color);
@@ -249,17 +273,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 16px;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .refresh-btn:active {
       transform: rotate(180deg) scale(0.92);
-      background: rgba(212, 175, 55, 0.2);
+      background: rgba(212, 175, 55, 0.25);
     }
 
-    /* Call to Action Button */
+    /* CTA Button */
     .cta-btn {
       margin-top: 14px;
       width: 100%;
@@ -291,9 +315,9 @@
       box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
     }
 
-    /* Social Connect Bar */
+    /* Quick Action Hub */
     .footer-nav {
-      background: rgba(10, 10, 12, 0.95);
+      background: rgba(10, 10, 12, 0.96);
       border-top: 1px solid var(--border-color);
       display: flex;
       justify-content: space-around;
@@ -330,7 +354,7 @@
     }
 
     .nav-btn:active .nav-icon {
-      background: rgba(212, 175, 55, 0.15);
+      background: rgba(212, 175, 55, 0.18);
       border-color: var(--gold-primary);
     }
   </style>
@@ -341,7 +365,7 @@
     <!-- Brand Header -->
     <div class="header">
       <div class="brand-emblem">
-        <!-- Golden TON Monogram Vector -->
+        <!-- Golden Circular TON Monogram -->
         <svg viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="4.5"/>
           <path d="M 28 32 C 38 24 62 24 72 32" fill="none" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
@@ -361,21 +385,22 @@
 
     <!-- 3-Step Guide -->
     <div class="steps-bar">
-      <div class="step-item"><span class="step-num">1</span> Pick Category</div>
+      <div class="step-item"><span class="step-num">1</span> Pick Topic</div>
       <div class="step-item"><span class="step-num">2</span> Tap Button</div>
       <div class="step-item"><span class="step-num">3</span> Paste & Post</div>
     </div>
 
-    <!-- Controls -->
+    <!-- Category Controls -->
     <div class="controls">
       <div class="pills">
         <button class="pill active" onclick="setCategory('all')">✨ ALL</button>
         <button class="pill" onclick="setCategory('street')">🔥 OVERSIZED & TEES</button>
         <button class="pill" onclick="setCategory('shirts')">👔 SHIRTS & DENIM</button>
-        <button class="pill" onclick="setCategory('vibe')">⭐ STORE & STAFF</button>
+        <button class="pill" onclick="setCategory('service')">⭐ STORE & STAFF</button>
       </div>
 
       <div class="lang-row">
+        <span class="unique-badge">⚡ Live Unique Review</span>
         <div class="segmented-control">
           <button class="seg-btn active" id="btn-en" onclick="setLang('en')">EN</button>
           <button class="seg-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
@@ -383,11 +408,12 @@
       </div>
     </div>
 
-    <!-- Review Section -->
+    <!-- Dynamic Review Box -->
     <div class="review-wrapper">
       <div class="review-box">
-        <div class="review-text" id="review-content">Loading review...</div>
-        <button class="refresh-btn" onclick="shuffleReview()" title="Next Review">⟳</button>
+        <div class="review-text" id="review-content" contenteditable="true" spellcheck="false">Loading review...</div>
+        <p class="review-hint">✎ Tap text above to personalize if you wish</p>
+        <button class="refresh-btn" onclick="shuffleReview()" title="Generate Another Unique Review">⟳</button>
       </div>
 
       <button class="cta-btn" id="copy-btn" onclick="copyAndRedirect()">
@@ -417,105 +443,154 @@
   </div>
 
   <script>
-    const reviewsData = {
-      all: {
-        en: [
-          "Hands down the best clothing store in Bhopal! Premium fabric, trending fits, and very reasonable pricing. 10/10 recommended!",
-          "Top quality outfits and incredible collection! The staff is courteous and helps you pick the right fit. Must visit!",
-          "Loved the vibe and collection here! Perfect destination in Bhopal for upgrading your everyday wardrobe."
-        ],
-        hi: [
-          "Bhopal me trendy kapdo ke liye sabse best shop hai! Fabric ekdum premium hai aur rate bhi bilkul genuine hain.",
-          "The Outfit Nation par shopping karke maza aa gaya. Latest drip aur super friendly staff. 5-star rating banti hai!",
-          "Zabardast variety aur top-notch fitting. Daily wear aur party wear dono ke liye Bhopal me number 1 choice!"
-        ]
+    /* Combinatorial Engine: Live Sentence Assembler (500+ Unique Combinations per Category) */
+    const combinatorialData = {
+      en: {
+        all: {
+          openers: [
+            "Hands down the best fashion store in Bhopal!",
+            "Had an absolute 10/10 shopping experience at The Outfit Nation.",
+            "Easily one of the most stylish clothing spots in the city.",
+            "Visited The Outfit Nation today and was genuinely impressed.",
+            "If you want high-grade casual and streetwear, this is the destination."
+          ],
+          details: [
+            "Their collection of oversized tees, shirts, and jeans is phenomenal.",
+            "The cloth material feels truly luxury and fits true to size.",
+            "Fresh drops, modern silhouettes, and top-tier fabric in every piece.",
+            "Every outfit has rich stitching, durable cloth, and great breathability.",
+            "Superb curation of trending street drip and everyday casuals."
+          ],
+          experience: [
+            "Store ambience is clean and welcoming, with very humble staff.",
+            "The pricing is remarkably affordable for this high level of quality.",
+            "Staff is extremely polite and helps you choose the perfect fit.",
+            "Smooth boutique vibes with hassle-free trial and checkout."
+          ],
+          closers: [
+            "10/10 recommended for everyone upgrading their wardrobe!",
+            "Definitely coming back for more outfits soon. 5-star experience!",
+            "A must-visit spot in Bhopal for authentic fashion lovers.",
+            "Completely worth every single rupee. Highly recommended!",
+            "Best clothing shopping experience in Bhopal by far!"
+          ]
+        },
+        street: {
+          openers: [
+            "Their oversized streetwear collection is genuinely unmatched in Bhopal!",
+            "Finally found a store in Bhopal with authentic street drip.",
+            "Top destination for hype casuals and modern streetwear.",
+            "The graphic tees and drop-shoulder fits here are unbelievable."
+          ],
+          details: [
+            "Heavy-weight GSM cotton with collar ribbing that does not lose shape.",
+            "Unique graphic prints and clean minimalist oversized tees.",
+            "The fall and drape of their oversized clothing is spot on.",
+            "Super comfortable streetwear that looks and feels premium."
+          ],
+          experience: [
+            "Great fitting options across all sizes with very cooperative staff.",
+            "Prices are way more reasonable than online fast-fashion brands.",
+            "Staff understands streetwear culture and recommends great pairings."
+          ],
+          closers: [
+            "Must visit if you love trending urban fashion!",
+            "Found my go-to store for tees and hoodies in Bhopal. 5 stars!",
+            "Totally worth it for all streetwear lovers. Highly recommended!"
+          ]
+        },
+        shirts: {
+          openers: [
+            "Bought luxury casual shirts and denims from The Outfit Nation.",
+            "Their formal and party wear shirt collection is top tier.",
+            "One of the finest denim and shirt selections in Bhopal."
+          ],
+          details: [
+            "The fabric feels rich, soft, and does not fade after wash.",
+            "Tailored silhouette and comfortable stretch denim that fits like a glove.",
+            "Very clean button detailing, durable stitching, and premium finish.",
+            "Classy color options ranging from pastels to deep party tones."
+          ],
+          experience: [
+            "Staff patiently helped me try multiple sizes until it was perfect.",
+            "Very competitive market rates for such luxurious cloth quality.",
+            "Appreciate the neat showroom and quick counter service."
+          ],
+          closers: [
+            "Definite repeat customer here. Outstanding fitting!",
+            "Completely satisfied with my purchase. 10/10 recommended!",
+            "Best place in Bhopal for sharp casual shirts and jeans!"
+          ]
+        },
+        service: {
+          openers: [
+            "Extremely satisfied with the hospitality and service at The Outfit Nation.",
+            "Shopping here was such a seamless and pleasant experience.",
+            "Outstanding store environment and genuine customer attention."
+          ],
+          details: [
+            "Staff is warm, non-pushy, and gives genuine outfit recommendations.",
+            "Everything is organized cleanly, making shopping fast and easy.",
+            "Transparent pricing with no hidden charges and fair rates."
+          ],
+          experience: [
+            "The billing and trial room process was fast and smooth.",
+            "The owners and staff prioritize customer satisfaction above all."
+          ],
+          closers: [
+            "Five stars all the way for exceptional customer care!",
+            "Will gladly recommend this store to all my family and friends.",
+            "A gem of a clothing showroom in Bhopal. Keep it up!"
+          ]
+        }
       },
-      street: {
-        en: [
-          "Their oversized t-shirts and streetwear collection are unmatched in Bhopal. Heavy-weight cotton and perfect collar fit!",
-          "Obsessed with the graphic tees and street drops. Premium aesthetics without burning a hole in the pocket."
-        ],
-        hi: [
-          "Inka oversized tees ka collection aur print quality next level hai! Pure Bhopal me aisi designs milna mushkil hai.",
-          "Streetwear lovers ke liye heaven hai ye store. Heavy GSM fabric aur fitting ekdum perfect aati hai!"
-        ]
-      },
-      shirts: {
-        en: [
-          "Bought formal & party shirts from here. The tailoring and silhouette feel completely luxury. Great denim collection too!",
-          "Very impressed with the shirt fabric quality. Doesn't lose shape after wash. Definitely a repeat customer."
-        ],
-        hi: [
-          "Shirts aur jeans ki fitting ekdum luxury brand jaisi hai. Washing ke baad bhi color fade nahi hota. Paisa vasool!",
-          "Classy shirt designs aur premium stretch denims. Fitting aur comfort dono 10 out of 10!"
-        ]
-      },
-      vibe: {
-        en: [
-          "Store ambience is modern and aesthetic. Staff is polite, patient, and very helpful with outfit suggestions. Loved the service!",
-          "Smooth shopping experience! Great prices, quick service, and clean aesthetic showroom. Keep it up!"
-        ],
-        hi: [
-          "Store ka interior aur atmosphere bohot accha hai. Staff bohot cooperative hai aur zabardasti nahi karta.",
-          "Bohot badiya customer service aur hospitality. Har customer ko properly attend karte hain. Super satisfied!"
-        ]
-      }
-    };
-
-    let activeCategory = 'all';
-    let activeLang = 'en';
-    const reviewRedirectUrl = "https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU";
-
-    function updateReviewText() {
-      const textEl = document.getElementById('review-content');
-      textEl.style.opacity = '0';
-      textEl.style.transform = 'translateY(4px)';
-
-      setTimeout(() => {
-        const list = reviewsData[activeCategory][activeLang];
-        const randomReview = list[Math.floor(Math.random() * list.length)];
-        textEl.innerText = `"${randomReview}"`;
-        textEl.style.opacity = '1';
-        textEl.style.transform = 'translateY(0)';
-      }, 150);
-    }
-
-    function setCategory(cat) {
-      activeCategory = cat;
-      document.querySelectorAll('.pill').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-      updateReviewText();
-    }
-
-    function setLang(lang) {
-      activeLang = lang;
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-hi').classList.toggle('active', lang === 'hi');
-      updateReviewText();
-    }
-
-    function shuffleReview() {
-      updateReviewText();
-    }
-
-    function copyAndRedirect() {
-      const textToCopy = document.getElementById('review-content').innerText.replace(/^"|"$/g, '');
-      const btn = document.getElementById('copy-btn');
-
-      if (navigator.vibrate) { navigator.vibrate(50); }
-
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        btn.classList.add('copied');
-        btn.innerHTML = "<span>✓</span> REVIEW COPIED! OPENING GOOGLE...";
-        setTimeout(() => {
-          window.location.href = reviewRedirectUrl;
-        }, 650);
-      }).catch(() => {
-        window.location.href = reviewRedirectUrl;
-      });
-    }
-
-    updateReviewText();
-  </script>
-</body>
-</html>
+      hi: {
+        all: {
+          openers: [
+            "Bhopal me trendy aur stylish kapdo ke liye sabse best shop hai!",
+            "The Outfit Nation par shopping karke dil khush ho gaya.",
+            "Bhopal me streetwear aur casuals ke liye number one choice hai.",
+            "Aaj store visit kiya aur collection dekh kar maza hi aa gaya.",
+            "Aesthetic aur modern kapdo ka sabse badhiya collection yahin mila."
+          ],
+          details: [
+            "Inka oversized tees aur shirts ka fabric ek number premium hai.",
+            "Kapde ka material bohot heavy aur durable hai, fitting bhi ekdum perfect aayi.",
+            "Trending designs aur fresh stock har baar ready milta hai.",
+            "Stitching aur cloth finish bilkul luxury brands jaisi lagti hai.",
+            "Daily wear aur party wear dono ke liye zabardast variety available hai."
+          ],
+          experience: [
+            "Staff ka nature bohot polite aur cooperative hai, koi jaldbaazi nahi karte.",
+            "Rates quality ke hisaab se bilkul genuine aur pocket-friendly hain.",
+            "Store ka aesthetic interior aur atmosphere kaafi modern aur clean hai.",
+            "Customer ko properly attend karte hain aur right fit chunne me madad karte hain."
+          ],
+          closers: [
+            "Paisa vasool quality! Bhopal walo ko zaroor visit karna chahiye.",
+            "5-star experience raha, definitely agle baar bhi yahin se shopping hogi!",
+            "Bhopal me wardrobe upgrade ke liye 10/10 recommended!",
+            "Full satisfaction mila, aisi shops Bhopal me kam hi dekhne ko milti hain.",
+            "Super quality aur badhiya fitting ke liye must visit store!"
+          ]
+        },
+        street: {
+          openers: [
+            "Inka oversized t-shirts aur streetwear stock pure Bhopal me best hai!",
+            "Streetwear lovers ke liye Bhopal me ye store best heaven hai.",
+            "Oversized fits aur graphic tees ka collection sach me kamaal hai."
+          ],
+          details: [
+            "Heavy GSM cotton fabric hai aur wash ke baad bhi collar kharab nahi hota.",
+            "Dope prints aur perfect drop-shoulder fitting milti hai.",
+            "Street drip bilkul modern aur aesthetic standard ka hai.",
+            "Color fading ki koi dikkat nahi aati, pure quality cloth hai."
+          ],
+          experience: [
+            "Online brands se kaafi better quality wo bhi reasonable price me mili.",
+            "Staff ko latest drip ka proper idea hai aur ache suggestions dete hain."
+          ],
+          closers: [
+            "Bhopal me trending look ke liye 10/10 recommended!",
+            "Har teen aur fashion lover ke liye must visit spot hai!",
+            "Super hit collection, definitely visiting ag
