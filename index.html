@@ -1,104 +1,416 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Outfit Nation - Review & Connect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Outfit Nation | Official 5-Star Experience</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #121212; color: #333; display: flex; justify-content: center; padding: 16px; }
-    .card { background: #ffffff; width: 100%; max-width: 440px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    :root {
+      --bg: #0a0a0a;
+      --card-bg: rgba(22, 22, 24, 0.85);
+      --gold-primary: #d4af37;
+      --gold-gradient: linear-gradient(135deg, #f9e79f 0%, #d4af37 50%, #aa771c 100%);
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text-main: #f5f5f7;
+      --text-muted: #8e8e93;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --chip-bg: rgba(255, 255, 255, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
     
-    /* Header - Modern Streetwear Dark Theme */
-    .header { background: #000000; color: #ffffff; text-align: center; padding: 24px 16px 18px; border-bottom: 2px solid #eab308; }
-    .header h1 { font-size: 22px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; color: #ffffff; }
-    .header p { font-size: 12px; color: #a1a1aa; letter-spacing: 0.5px; }
-    .stars { margin-top: 10px; color: #eab308; font-size: 18px; }
-    .sub-title { font-size: 11px; text-transform: uppercase; color: #e4e4e7; letter-spacing: 1px; margin-top: 4px; font-weight: 600; }
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 14px;
+    }
 
-    /* Category Controls */
-    .controls { padding: 16px 16px 8px; }
-    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 12px; }
-    .pill { border: 1.5px solid #000000; background: #fff; color: #000; padding: 6px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; cursor: pointer; transition: 0.2s; }
-    .pill.active { background: #000000; color: #fff; }
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      width: 100%;
+      max-width: 420px;
+      border-radius: 28px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px var(--gold-glow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
 
-    .lang-switch { display: flex; justify-content: center; gap: 10px; margin-bottom: 8px; }
-    .lang-btn { background: #f4f4f5; border: 1px solid #e4e4e7; padding: 5px 14px; border-radius: 14px; font-size: 11px; font-weight: bold; color: #52525b; cursor: pointer; }
-    .lang-btn.active { background: #000; color: #fff; border-color: #000; }
+    /* Top Brand Header */
+    .header {
+      padding: 24px 20px 14px;
+      text-align: center;
+      position: relative;
+    }
 
-    /* Review Box */
-    .review-wrapper { padding: 0 16px 16px; }
-    .review-container { position: relative; border: 2px solid #e4e4e7; border-radius: 14px; background: #fafafa; padding: 14px 44px 14px 14px; min-height: 95px; display: flex; align-items: center; }
-    .review-text { font-size: 13.5px; line-height: 1.5; color: #18181b; font-weight: 500; }
-    .refresh-btn { position: absolute; right: 10px; top: 12px; background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 50%; width: 34px; height: 34px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .refresh-btn:active { transform: rotate(90deg); transition: 0.2s; }
+    .brand-emblem {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+    }
 
-    /* Action Button */
-    .action-btn { background: #000000; color: #ffffff; border: none; width: 100%; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 12px; transition: 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
-    .action-btn.copied { background: #15803d; }
-    .hint { text-align: center; font-size: 11px; color: #71717a; margin-top: 6px; }
+    .brand-emblem svg {
+      width: 42px;
+      height: 42px;
+    }
 
-    /* Quick Social Hub */
-    .quick-links { display: flex; justify-content: space-around; padding: 18px 12px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
-    .icon-btn { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #0f172a; font-size: 11px; font-weight: 600; gap: 6px; }
-    .icon-circle { width: 44px; height: 44px; border-radius: 50%; background: #000000; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .brand-title {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .verified-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      margin-top: 10px;
+      color: #e5e5ea;
+    }
+
+    .stars {
+      color: #f5a623;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    /* 3-Step Visual Micro Bar */
+    .steps-bar {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 20px 14px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .step-num {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    /* Category & Language Controls */
+    .controls {
+      padding: 0 18px 10px;
+    }
+
+    .pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .pills::-webkit-scrollbar { display: none; }
+
+    .pill {
+      background: var(--chip-bg);
+      border: 1px solid var(--border-color);
+      color: #a1a1a6;
+      padding: 7px 14px;
+      border-radius: 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .pill.active {
+      background: var(--gold-gradient);
+      color: #000;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+      font-weight: 700;
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .segmented-control {
+      display: flex;
+      background: #111;
+      padding: 3px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .seg-btn {
+      background: transparent;
+      border: none;
+      color: #888;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .seg-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    /* Review Card Box */
+    .review-wrapper {
+      padding: 0 18px 18px;
+    }
+
+    .review-box {
+      position: relative;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 16px 48px 16px 16px;
+      min-height: 98px;
+      display: flex;
+      align-items: center;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .review-text {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #e5e5ea;
+      font-weight: 500;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .refresh-btn {
+      position: absolute;
+      right: 12px;
+      top: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .refresh-btn:active {
+      transform: rotate(180deg) scale(0.92);
+      background: rgba(212, 175, 55, 0.2);
+    }
+
+    /* Call to Action Button */
+    .cta-btn {
+      margin-top: 14px;
+      width: 100%;
+      padding: 15px;
+      border-radius: 16px;
+      border: none;
+      background: var(--gold-gradient);
+      color: #0b0b0d;
+      font-size: 14.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+    }
+
+    .cta-btn.copied {
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+    }
+
+    /* Social Connect Bar */
+    .footer-nav {
+      background: rgba(10, 10, 12, 0.95);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      padding: 14px 10px 16px;
+    }
+
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 10.5px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover, .nav-btn:active {
+      color: var(--gold-primary);
+    }
+
+    .nav-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:active .nav-icon {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--gold-primary);
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
+    <!-- Brand Header -->
     <div class="header">
-      <h1>THE OUTFIT NATION</h1>
-      <p>Premium Wear • Casuals • Trends • Bhopal</p>
-      <div class="stars">★★★★★</div>
-      <div class="sub-title">Rate Your Experience</div>
+      <div class="brand-emblem">
+        <!-- Golden TON Monogram Vector -->
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="4.5"/>
+          <path d="M 28 32 C 38 24 62 24 72 32" fill="none" stroke="#d4af37" stroke-width="4" stroke-linecap="round"/>
+          <rect x="47.5" y="24" width="5" height="54" rx="2" fill="#d4af37"/>
+          <path d="M 38 43 L 38 65 M 38 43 L 62 65 M 62 43 L 62 65" fill="none" stroke="#d4af37" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="brand-title">The Outfit Nation</h1>
+      <p class="brand-subtitle">Premium Wear • Casual Comfort • Bhopal</p>
+
+      <div class="verified-pill">
+        <span style="color:#4285F4;font-weight:bold;">G</span> Google Verified Rating 
+        <span class="stars">★★★★★</span>
+      </div>
     </div>
 
+    <!-- 3-Step Guide -->
+    <div class="steps-bar">
+      <div class="step-item"><span class="step-num">1</span> Pick Category</div>
+      <div class="step-item"><span class="step-num">2</span> Tap Button</div>
+      <div class="step-item"><span class="step-num">3</span> Paste & Post</div>
+    </div>
+
+    <!-- Controls -->
     <div class="controls">
-      <!-- Category Selection -->
       <div class="pills">
-        <button class="pill active" onclick="setCategory('all')">ALL</button>
-        <button class="pill" onclick="setCategory('collection')">COLLECTION</button>
-        <button class="pill" onclick="setCategory('quality')">FIT & QUALITY</button>
-        <button class="pill" onclick="setCategory('staff')">SERVICE & PRICE</button>
+        <button class="pill active" onclick="setCategory('all')">✨ ALL</button>
+        <button class="pill" onclick="setCategory('street')">🔥 OVERSIZED & TEES</button>
+        <button class="pill" onclick="setCategory('shirts')">👔 SHIRTS & DENIM</button>
+        <button class="pill" onclick="setCategory('vibe')">⭐ STORE & STAFF</button>
       </div>
 
-      <!-- Language Switch -->
-      <div class="lang-switch">
-        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">ENGLISH</button>
-        <button class="lang-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
+      <div class="lang-row">
+        <div class="segmented-control">
+          <button class="seg-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+          <button class="seg-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
+        </div>
       </div>
     </div>
 
-    <!-- Review Box -->
+    <!-- Review Section -->
     <div class="review-wrapper">
-      <div class="review-container">
+      <div class="review-box">
         <div class="review-text" id="review-content">Loading review...</div>
-        <button class="refresh-btn" onclick="shuffleReview()" title="Change review">⟳</button>
+        <button class="refresh-btn" onclick="shuffleReview()" title="Next Review">⟳</button>
       </div>
 
-      <button class="action-btn" id="copy-btn" onclick="copyAndRedirect()">
-        📋 COPY & PASTE ON GOOGLE
+      <button class="cta-btn" id="copy-btn" onclick="copyAndRedirect()">
+        <span>📋</span> COPY & RATE 5-STAR
       </button>
-      <p class="hint">Tap button to copy review & open Google rating box</p>
     </div>
 
-    <!-- Quick Links -->
-    <div class="quick-links">
-      <a href="https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU" class="icon-btn" target="_blank">
-        <div class="icon-circle">📍</div>
-        Map
+    <!-- Bottom Actions -->
+    <div class="footer-nav">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU" class="nav-btn" target="_blank">
+        <div class="nav-icon">📍</div>
+        Store Map
       </a>
-      <a href="https://wa.me/917477237731?text=Hi%20The%20Outfit%20Nation,%20I%20want%20to%20know%20about%20your%20latest%20collection." class="icon-btn" target="_blank">
-        <div class="icon-circle">💬</div>
+      <a href="https://wa.me/917477237731?text=Hi%20The%20Outfit%20Nation,%20I%20visited%20your%20store%20and%20loved%20the%20collection!" class="nav-btn" target="_blank">
+        <div class="nav-icon">💬</div>
         WhatsApp
       </a>
-      <a href="tel:+917477237731" class="icon-btn">
-        <div class="icon-circle">📞</div>
+      <a href="tel:+917477237731" class="nav-btn">
+        <div class="nav-icon">📞</div>
         Call Us
       </a>
-      <a href="https://www.instagram.com/theoutfitnation_?vrfl=MTFxM2o1dDM2YTUzag==" class="icon-btn" target="_blank">
-        <div class="icon-circle">📷</div>
+      <a href="https://www.instagram.com/theoutfitnation_?vrfl=MTFxM2o1dDM2YTUzag==" class="nav-btn" target="_blank">
+        <div class="nav-icon">📸</div>
         Instagram
       </a>
     </div>
@@ -108,44 +420,44 @@
     const reviewsData = {
       all: {
         en: [
-          "One of the best clothing stores in Bhopal! Super stylish collection, premium fabric, and very affordable prices. Highly recommended!",
-          "Great shopping experience at The Outfit Nation. Found trendy outfits and the store staff was very helpful. Must visit!",
-          "Loved the vibes and fashion variety here. Perfect place in Bhopal for upgrading your daily wardrobe!"
+          "Hands down the best clothing store in Bhopal! Premium fabric, trending fits, and very reasonable pricing. 10/10 recommended!",
+          "Top quality outfits and incredible collection! The staff is courteous and helps you pick the right fit. Must visit!",
+          "Loved the vibe and collection here! Perfect destination in Bhopal for upgrading your everyday wardrobe."
         ],
         hi: [
-          "Bhopal me trendy aur stylish kapdo ke liye best shop hai! Fabric quality bohot acchi hai aur rate bhi genuine hain.",
-          "The Outfit Nation par shopping karke maza aa gaya. Latest collection aur polite staff. 5-star experience!",
-          "Zabardast variety aur premium collection. Bhopal me daily wear aur party wear ke liye sabse best store!"
+          "Bhopal me trendy kapdo ke liye sabse best shop hai! Fabric ekdum premium hai aur rate bhi bilkul genuine hain.",
+          "The Outfit Nation par shopping karke maza aa gaya. Latest drip aur super friendly staff. 5-star rating banti hai!",
+          "Zabardast variety aur top-notch fitting. Daily wear aur party wear dono ke liye Bhopal me number 1 choice!"
         ]
       },
-      collection: {
+      street: {
         en: [
-          "Amazing collection of trending streetwear, oversized tees, and stylish shirts. New drops are always on point!",
-          "Best place if you are looking for unique, modern, and trending clothes. Their denim and shirt collection is top tier."
+          "Their oversized t-shirts and streetwear collection are unmatched in Bhopal. Heavy-weight cotton and perfect collar fit!",
+          "Obsessed with the graphic tees and street drops. Premium aesthetics without burning a hole in the pocket."
         ],
         hi: [
-          "Inka trending collection aur oversized t-shirts ka stock ek number hai! Bhopal me aisi designs kam hi milti hain.",
-          "Latest fashion aur fresh collection har baar milta hai. Shirts aur jackets ki variety bohot shaandar hai!"
+          "Inka oversized tees ka collection aur print quality next level hai! Pure Bhopal me aisi designs milna mushkil hai.",
+          "Streetwear lovers ke liye heaven hai ye store. Heavy GSM fabric aur fitting ekdum perfect aati hai!"
         ]
       },
-      quality: {
+      shirts: {
         en: [
-          "Top-notch fabric quality! The cloth material feels luxurious and the fit is absolutely perfect after wash as well.",
-          "Impressed with the clothing fit and finish. Premium look at very competitive market rates. Fully satisfied!"
+          "Bought formal & party shirts from here. The tailoring and silhouette feel completely luxury. Great denim collection too!",
+          "Very impressed with the shirt fabric quality. Doesn't lose shape after wash. Definitely a repeat customer."
         ],
         hi: [
-          "Kapde ka fabric aur stitching bohot solid hai. Fitting ekdum perfect aayi. Paisa vasool quality!",
-          "Material quality bohot premium hai aur dhone ke baad bhi color fade nahi hota. Best fitting outfits!"
+          "Shirts aur jeans ki fitting ekdum luxury brand jaisi hai. Washing ke baad bhi color fade nahi hota. Paisa vasool!",
+          "Classy shirt designs aur premium stretch denims. Fitting aur comfort dono 10 out of 10!"
         ]
       },
-      staff: {
+      vibe: {
         en: [
-          "Very courteous staff and cooperative service. Prices are extremely reasonable for the quality they provide.",
-          "Smooth shopping experience! Staff helps you choose the right fit without rushing. Definitely coming back."
+          "Store ambience is modern and aesthetic. Staff is polite, patient, and very helpful with outfit suggestions. Loved the service!",
+          "Smooth shopping experience! Great prices, quick service, and clean aesthetic showroom. Keep it up!"
         ],
         hi: [
-          "Staff ka nature bohot cooperative aur helpful hai. Rates bhi quality ke hisaab se kaafi reasonable hain.",
-          "Bohot badhiya service aur accha treatment mila. Customer satisfaction par pura dhyan dete hain!"
+          "Store ka interior aur atmosphere bohot accha hai. Staff bohot cooperative hai aur zabardasti nahi karta.",
+          "Bohot badiya customer service aur hospitality. Har customer ko properly attend karte hain. Super satisfied!"
         ]
       }
     };
@@ -155,9 +467,17 @@
     const reviewRedirectUrl = "https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU";
 
     function updateReviewText() {
-      const list = reviewsData[activeCategory][activeLang];
-      const randomReview = list[Math.floor(Math.random() * list.length)];
-      document.getElementById('review-content').innerText = `"${randomReview}"`;
+      const textEl = document.getElementById('review-content');
+      textEl.style.opacity = '0';
+      textEl.style.transform = 'translateY(4px)';
+
+      setTimeout(() => {
+        const list = reviewsData[activeCategory][activeLang];
+        const randomReview = list[Math.floor(Math.random() * list.length)];
+        textEl.innerText = `"${randomReview}"`;
+        textEl.style.opacity = '1';
+        textEl.style.transform = 'translateY(0)';
+      }, 150);
     }
 
     function setCategory(cat) {
@@ -182,12 +502,14 @@
       const textToCopy = document.getElementById('review-content').innerText.replace(/^"|"$/g, '');
       const btn = document.getElementById('copy-btn');
 
+      if (navigator.vibrate) { navigator.vibrate(50); }
+
       navigator.clipboard.writeText(textToCopy).then(() => {
         btn.classList.add('copied');
-        btn.innerText = "✓ COPIED! OPENING GOOGLE...";
+        btn.innerHTML = "<span>✓</span> REVIEW COPIED! OPENING GOOGLE...";
         setTimeout(() => {
           window.location.href = reviewRedirectUrl;
-        }, 600);
+        }, 650);
       }).catch(() => {
         window.location.href = reviewRedirectUrl;
       });
