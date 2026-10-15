@@ -140,7 +140,7 @@
       font-weight: 800;
     }
 
-    /* Controls */
+    /* Category Controls */
     .controls {
       padding: 0 16px 6px;
     }
@@ -320,6 +320,7 @@
 <body>
 
   <div class="card">
+    <!-- Brand Header -->
     <div class="header">
       <div class="brand-emblem">
         <svg viewBox="0 0 100 100">
@@ -339,12 +340,14 @@
       </div>
     </div>
 
+    <!-- 3-Step Guide -->
     <div class="steps-bar">
       <div class="step-item"><span class="step-num">1</span> Pick Topic</div>
       <div class="step-item"><span class="step-num">2</span> Tap Button</div>
       <div class="step-item"><span class="step-num">3</span> Paste & Post</div>
     </div>
 
+    <!-- Controls -->
     <div class="controls">
       <div class="pills">
         <button class="pill active" onclick="setCategory(this, 'all')">✨ ALL</button>
@@ -354,7 +357,7 @@
       </div>
 
       <div class="lang-row">
-        <span class="unique-badge">⚡ Instant Review</span>
+        <span class="unique-badge">⚡ Instant Unique Review</span>
         <div class="segmented-control">
           <button class="seg-btn active" id="btn-en" onclick="setLang('en')">EN</button>
           <button class="seg-btn" id="btn-hi" onclick="setLang('hi')">HINGLISH</button>
@@ -362,6 +365,7 @@
       </div>
     </div>
 
+    <!-- Review Section -->
     <div class="review-wrapper">
       <div class="review-box">
         <div class="review-text" id="review-content" contenteditable="true" spellcheck="false">Loading review...</div>
@@ -374,6 +378,7 @@
       </button>
     </div>
 
+    <!-- Footer Action Hub -->
     <div class="footer-nav">
       <a href="https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU" class="nav-btn" target="_blank">
         <div class="nav-icon">📍</div>
@@ -395,6 +400,7 @@
   </div>
 
   <script>
+    /* Ultra-High Entropy Combinatorial Engine (4,000+ Combinations) */
     const combinatorialData = {
       en: {
         all: {
@@ -402,72 +408,103 @@
             "Hands down the best fashion store in Bhopal!",
             "Had an absolute 10/10 shopping experience at The Outfit Nation.",
             "Easily one of the most stylish clothing spots in the city.",
-            "Visited The Outfit Nation today and was genuinely impressed."
+            "Visited The Outfit Nation today and was genuinely impressed.",
+            "If you want high-grade casual and streetwear, this is the destination.",
+            "Finally a store in Bhopal that truly understands modern drip!",
+            "Honestly the finest men's fashion boutique in the city.",
+            "One of my best clothing shopping discoveries in Bhopal!"
           ],
           details: [
             "Their collection of oversized tees, shirts, and jeans is phenomenal.",
             "The cloth material feels truly luxury and fits true to size.",
             "Fresh drops, modern silhouettes, and top-tier fabric in every piece.",
-            "Superb curation of trending street drip and everyday casuals."
+            "Superb curation of trending street drip and everyday casuals.",
+            "Heavy-weight cotton quality that feels ultra durable and breathable.",
+            "The cuts, drape, and stitching quality are comparable to top global brands.",
+            "Every single outfit on display looks curated with serious attention to detail.",
+            "Premium texture, aesthetic colors, and spot-on sizing across all racks."
           ],
           experience: [
             "Store ambience is clean and welcoming, with very humble staff.",
             "The pricing is remarkably affordable for this high level of quality.",
-            "Staff is extremely polite and helps you choose the perfect fit."
+            "Staff is extremely polite and helps you choose the perfect fit.",
+            "Smooth boutique vibes with hassle-free trial and checkout.",
+            "Super patient staff who guided me through the right sizes without rushing.",
+            "Transparent pricing and great recommendations from the owner.",
+            "Fast billing and very neat packaging at the counter."
           ],
           closers: [
             "10/10 recommended for everyone upgrading their wardrobe!",
             "Definitely coming back for more outfits soon. 5-star experience!",
-            "Completely worth every single rupee. Highly recommended!"
+            "Completely worth every single rupee. Highly recommended!",
+            "A must-visit clothing showroom in Bhopal for authentic style lovers.",
+            "Five stars all the way! Best fashion store in the city.",
+            "Will definitely be recommending this place to all my friends.",
+            "Outstanding quality. Keep up the amazing work!"
           ]
         },
         street: {
           openers: [
             "Their oversized streetwear collection is genuinely unmatched in Bhopal!",
             "Finally found a store in Bhopal with authentic street drip.",
-            "Top destination for hype casuals and modern streetwear."
+            "Top destination for hype casuals and modern streetwear fits.",
+            "If you love urban aesthetics, this collection will blow your mind.",
+            "The drop-shoulder t-shirt collection here is pure fire!"
           ],
           details: [
             "Heavy-weight GSM cotton with collar ribbing that does not lose shape.",
             "Unique graphic prints and clean minimalist oversized tees.",
-            "Super comfortable streetwear that looks and feels premium."
+            "Super comfortable streetwear that looks and feels genuinely premium.",
+            "The boxy silhouette and shoulder drop are cut to absolute perfection.",
+            "Vibrant, fade-resistant prints on rich breathable cotton fabric."
           ],
           experience: [
             "Great fitting options across all sizes with very cooperative staff.",
-            "Prices are way more reasonable than online fast-fashion brands."
+            "Prices are way more reasonable than overpriced online hype brands.",
+            "Staff understands streetwear culture and recommends great pairings.",
+            "Trial rooms are clean and staff brings alternative sizes promptly."
           ],
           closers: [
             "Must visit if you love trending urban fashion!",
-            "Found my go-to store for tees and hoodies in Bhopal. 5 stars!"
+            "Found my permanent go-to store for tees and casuals in Bhopal. 5 stars!",
+            "Totally worth it for all streetwear lovers. Highly recommended!",
+            "10/10 streetwear standard in Bhopal!"
           ]
         },
         shirts: {
           openers: [
             "Bought luxury casual shirts and denims from The Outfit Nation.",
-            "Their formal and party wear shirt collection is top tier."
+            "Their formal and party wear shirt collection is top tier.",
+            "One of the finest denim and shirt selections in Bhopal.",
+            "Super impressed by the sharp tailoring and shirt designs here."
           ],
           details: [
             "The fabric feels rich, soft, and does not fade after wash.",
             "Tailored silhouette and comfortable stretch denim that fits like a glove.",
-            "Very clean button detailing, durable stitching, and premium finish."
+            "Very clean button detailing, durable stitching, and premium finish.",
+            "Sophisticated color palettes ranging from sleek pastels to party classics."
           ],
           experience: [
             "Staff patiently helped me try multiple sizes until it was perfect.",
-            "Very competitive market rates for such luxurious cloth quality."
+            "Very competitive market rates for such luxurious cloth quality.",
+            "Showroom is well-maintained and customer service is top notch."
           ],
           closers: [
             "Definite repeat customer here. Outstanding fitting!",
-            "Completely satisfied with my purchase. 10/10 recommended!"
+            "Completely satisfied with my purchase. 10/10 recommended!",
+            "Best place in Bhopal for sharp casual shirts and jeans!"
           ]
         },
         service: {
           openers: [
             "Extremely satisfied with the hospitality and service at The Outfit Nation.",
-            "Shopping here was such a seamless and pleasant experience."
+            "Shopping here was such a seamless and pleasant experience.",
+            "Outstanding store environment and genuine customer attention."
           ],
           details: [
             "Staff is warm, non-pushy, and gives genuine outfit recommendations.",
-            "Everything is organized cleanly, making shopping fast and easy."
+            "Everything is organized cleanly, making shopping fast and easy.",
+            "Fair pricing with absolute clarity and no pushy sales tactics."
           ],
           experience: [
             "The billing and trial room process was fast and smooth.",
@@ -484,38 +521,51 @@
           openers: [
             "Bhopal me trendy aur stylish kapdo ke liye sabse best shop hai!",
             "The Outfit Nation par shopping karke dil khush ho gaya.",
-            "Bhopal me streetwear aur casuals ke liye number one choice hai."
+            "Bhopal me streetwear aur casuals ke liye number one choice hai.",
+            "Aaj store visit kiya aur collection dekh kar maza hi aa gaya.",
+            "Aesthetic aur modern kapdo ka sabse badhiya showroom Bhopal me!",
+            "Finally Bhopal me ek dhang ki fashion shop mili jahan trending kapde hain.",
+            "Wardrobe upgrade ke liye Bhopal me isse badhiya koi store nahi."
           ],
           details: [
             "Inka oversized tees aur shirts ka fabric ek number premium hai.",
             "Kapde ka material bohot heavy aur durable hai, fitting bhi ekdum perfect aayi.",
-            "Stitching aur cloth finish bilkul luxury brands jaisi lagti hai."
+            "Stitching aur cloth finish bilkul luxury brands jaisi lagti hai.",
+            "Colors ekdum classy hain aur washing ke baad bhi kapda shrink nahi hota.",
+            "Har body type ke liye perfect fits aur latest streetwear designs available hain.",
+            "Fabric touch karte hi pata chal jata hai ki quality genuine hai."
           ],
           experience: [
             "Staff ka nature bohot polite aur cooperative hai, koi jaldbaazi nahi karte.",
-            "Rates quality ke hisaab se bilkul genuine aur pocket-friendly hain."
+            "Rates quality ke hisaab se bilkul genuine aur pocket-friendly hain.",
+            "Store ka interior kaafi clean hai aur trial room ka experience smooth raha.",
+            "Customer ko properly attend karte hain aur right size chunne me poori help karte hain."
           ],
           closers: [
             "Paisa vasool quality! Bhopal walo ko zaroor visit karna chahiye.",
-            "5-star experience raha, definitely agle baar bhi shopping yahin se hogi!"
+            "5-star experience raha, definitely agle baar bhi shopping yahin se hogi!",
+            "Bhopal me trending look ke liye 10/10 recommended!",
+            "Full satisfaction mila. Best shopping experience in town!"
           ]
         },
         street: {
           openers: [
             "Inka oversized t-shirts aur streetwear stock pure Bhopal me best hai!",
-            "Streetwear lovers ke liye Bhopal me ye store best heaven hai."
+            "Streetwear lovers ke liye Bhopal me ye store best heaven hai.",
+            "Oversized fits aur graphic tees ka collection sach me kamaal hai."
           ],
           details: [
             "Heavy GSM cotton fabric hai aur wash ke baad bhi collar kharab nahi hota.",
-            "Dope prints aur perfect drop-shoulder fitting milti hai."
+            "Dope prints aur perfect drop-shoulder fitting milti hai.",
+            "Online brands se kaafi better quality wo bhi pocket-friendly rate me."
           ],
           experience: [
-            "Online brands se kaafi better quality wo bhi reasonable price me mili.",
-            "Staff ko latest drip ka proper idea hai aur ache suggestions dete hain."
+            "Staff ko latest drip ka proper idea hai aur ache suggestions dete hain.",
+            "Fitting try karne me poora support karte hain bina kisi rush ke."
           ],
           closers: [
             "Bhopal me trending look ke liye 10/10 recommended!",
-            "Har teen aur fashion lover ke liye must visit spot hai!"
+            "Har fashion lover ke liye must visit spot hai. 5 stars!"
           ]
         },
         shirts: {
@@ -525,11 +575,12 @@
           ],
           details: [
             "Fabric super soft aur breathable hai, wash ke baad shrink nahi hota.",
-            "Tailoring aur silhouette ekdum sharp look deti hai."
+            "Tailoring aur silhouette ekdum sharp look deti hai.",
+            "Jeans ka stretch aur comfort 10 out of 10 hai."
           ],
           experience: [
             "Staff ne bina kisi hesitation ke sahi size try karwaya.",
-            "Rates quality ke saamne kaafi genuine lage."
+            "Rates quality ke saamne kaafi genuine aur affordable hain."
           ],
           closers: [
             "Full paisa vasool fitting! 5-star rating banti hai.",
@@ -560,14 +611,41 @@
     let activeCategory = 'all';
     let activeLang = 'en';
     const reviewRedirectUrl = "https://search.google.com/local/writereview?placeid=ChIJMb6FeQBpfDkR17jIyDxRrWU";
+    
+    // Anti-repeat session memory
+    let recentReviews = [];
 
-    function getRandomItem(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
+    // Hardware Cryptographic Random Generator
+    function getCryptoRandomItem(arr) {
+      if (!arr || arr.length === 0) return "";
+      const randomBuffer = new Uint32Array(1);
+      window.crypto.getRandomValues(randomBuffer);
+      const randomIndex = randomBuffer[0] % arr.length;
+      return arr[randomIndex];
     }
 
     function generateUniqueReview() {
-      const catData = combinatorialData[activeLang][activeCategory] || combinatorialData[activeLang]['all'];
-      return `${getRandomItem(catData.openers)} ${getRandomItem(catData.details)} ${getRandomItem(catData.experience)} ${getRandomItem(catData.closers)}`;
+      const catData = (combinatorialData[activeLang] && combinatorialData[activeLang][activeCategory]) 
+                      ? combinatorialData[activeLang][activeCategory] 
+                      : combinatorialData[activeLang]['all'];
+
+      let newReview = "";
+      let attempts = 0;
+
+      // Loop to ensure non-repeating sequence
+      do {
+        const p1 = getCryptoRandomItem(catData.openers);
+        const p2 = getCryptoRandomItem(catData.details);
+        const p3 = getCryptoRandomItem(catData.experience);
+        const p4 = getCryptoRandomItem(catData.closers);
+        newReview = `${p1} ${p2} ${p3} ${p4}`;
+        attempts++;
+      } while (recentReviews.includes(newReview) && attempts < 12);
+
+      recentReviews.push(newReview);
+      if (recentReviews.length > 6) recentReviews.shift();
+
+      return newReview;
     }
 
     function updateReviewText() {
@@ -618,6 +696,7 @@
       }
     }
 
+    // Initial trigger
     updateReviewText();
   </script>
 </body>
